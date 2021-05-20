@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: ayush
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: ayush-cloud-armor
+spec:
+  rules:
+  - host: ayush-armor-test.searceinc.org
+    http:
+      paths:
+      - backend:
+          serviceName: ayush-cloud-armor
+          servicePort: 80
+
